@@ -11,6 +11,60 @@
  */
 @tailwind preflight;
 
+/* ROOT */
+*, *::before, *::after {
+  @apply antialiased;
+}
+
+:root {
+  @apply font-body font-medium text-black-light leading-normal;
+  font-size: responsive 18px 22px;
+  font-range: 500px 1600px;
+}
+
+/* TYPE */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-normal text-lg mb-4;
+}
+
+h1 { font-size: responsive 2rem 2.5rem; font-range: 300px 1600px; }
+h2 { @apply text-xl2; }
+h3 { @apply text-xl1; }
+h4, h5, h6 { @apply font-bold; }
+
+a { 
+  color: inherit;
+  text-decoration: none; 
+}
+
+/* ELEMENTS */
+hr {
+  @apply bg-gray;
+  border: none;
+  width: 100%;
+  height: 1px;
+}
+
+blockquote {
+  @apply text-lg font-heading p-32 border border-primary-light text-primary-light;
+  @apply -mx-32 my-40 px-80;
+}
+
+input, textarea {
+  @apply py-12 px-24 font-medium bg-gray-light border border-gray-dark;
+  transition: all 0.3s;
+}
+
+textarea {
+  @apply py-24;
+  height: 10rem;
+}
+
+input:hover, textarea:hover { @apply border-primary-light; }
+input:focus, textarea:focus { @apply border-primary bg-white; }
+
+label { @apply inline-block uppercase font-alt font-normal tracking-normal text-xs text-black mb-8; }
+
 /**
  * This injects any component classes registered by plugins.
  *
@@ -20,21 +74,6 @@
  */
 @tailwind components;
 
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -46,17 +85,29 @@
  */
 @tailwind utilities;
 
-/**
- * Here you would add any custom utilities you need that don't come out of the
- * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor or `postcss-import`:
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
- */
+.bg-circle-pattern { position: relative; }
+.bg-circle-pattern::before, 
+.bg-circle-pattern::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 50%;
+}
+
+@keyframes bgScroll {
+  to { background-position: 0 24px; }
+}
+
+.bg-circle-pattern::before { 
+  background: url('../images/circle_pattern.svg') repeat 0 0;
+  animation: bgScroll 1.5s linear infinite;
+}
+.bg-circle-pattern::after { 
+  background: linear-gradient(to bottom,
+    white 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    white 100%
+  );
+}

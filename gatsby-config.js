@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`,
+    title: `Jason Yeung`,
+    description: `Personal portfolio for Jason Yeung`,
+    author: `Jason Yeung`,
   },
+  
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -27,14 +28,24 @@ module.exports = {
         icon: `src/images/tailwind-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: [`Domine:400,700`, `Barlow:500,500i,600,600i`]
+        }
+      }
+    },
     `gatsby-plugin-postcss`,
     {
-      resolve: 'gatsby-plugin-purgecss',
+      resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
-        purgeOnly: ['src/css/style.css'], // Purge only tailwind
+        purgeOnly: [`src/css/style.css`], // Purge only tailwind
       },
     },
+    `gatsby-plugin-tailwindcss`,
+    `gatsby-plugin-styled-components`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
