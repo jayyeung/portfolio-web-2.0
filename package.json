@@ -17,6 +17,7 @@
     "gatsby-plugin-tailwindcss": "^1.0.3",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-json": "^2.1.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "polished": "^2.3.3",
     "postcss-responsive-type": "^1.0.0",
