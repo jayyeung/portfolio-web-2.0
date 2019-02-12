@@ -101,7 +101,7 @@ label { @apply inline-block uppercase font-alt font-normal tracking-normal text-
 }
 
 .bg-circle-pattern::before { 
-  background: url('../images/circle_pattern.svg') repeat 0 0;
+  background: url('../images/circle-pattern.svg') repeat 0 0;
   animation: bgScroll 1.5s linear infinite;
 }
 .bg-circle-pattern::after { 
