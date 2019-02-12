@@ -1,13 +1,24 @@
 /* TEXT FONTS */
 @font-face {
-    font-family: 'Franklin Gothic';
-    src: url('../fonts/FranklinGothic-Medium.eot');
-    src: url('../fonts/FranklinGothic-Medium.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/FranklinGothic-Medium.woff2') format('woff2'),
-        url('../fonts/FranklinGothic-Medium.woff') format('woff'),
-        url('../fonts/FranklinGothic-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/FranklinGothic-Medium.eot');
+  src: url('../fonts/FranklinGothic-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/FranklinGothic-Medium.woff2') format('woff2'),
+      url('../fonts/FranklinGothic-Medium.woff') format('woff'),
+      url('../fonts/FranklinGothic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Franklin Gothic';
+  src: url('../fonts/FranklinGothic-Demi.eot');
+  src: url('../fonts/FranklinGothic-Demi.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/FranklinGothic-Demi.woff2') format('woff2'),
+      url('../fonts/FranklinGothic-Demi.woff') format('woff'),
+      url('../fonts/FranklinGothic-Demi.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
 
