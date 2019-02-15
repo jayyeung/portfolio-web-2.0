@@ -36,7 +36,7 @@ const FormContainer = styled.div`
 `;
 
 const ContactLabel = styled(Label)`
-  ${tw`text-primary bg-white border border-primary py-12 px-32 mb-40`}
+  ${tw`inline-block text-primary bg-white border border-primary py-12 px-32 mb-40`}
 `;
 
 const ContactForm = styled.form`

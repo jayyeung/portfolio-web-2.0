@@ -11,17 +11,10 @@ const MODIFIERS = {
     styles: css`
       ${tw`relative`}
 
-      &::before {
-        content: '';
-        ${tw`absolute pin-b pin-r pin-l px-4`}
-        z-index: -1;
-        top: 0.1em;
-        background: linear-gradient(
-          to bottom,
-          #EFEFEF,
-          transparent
-        );
-      }
+      background: linear-gradient(to bottom,
+        #E2E2E2,
+        transparent
+      );
   `}),
 
   undl: () => ({
@@ -31,7 +24,7 @@ const MODIFIERS = {
 };
 
 const Label = styled.span`
-  ${tw`inline-block align-middle uppercase font-alt font-medium tracking-normal text-xs text-black`};
+  ${tw`align-middle uppercase font-alt font-medium tracking-normal text-xs text-black`};
   ${applyStyleModifiers(MODIFIERS, 'alt')};
 `;
 

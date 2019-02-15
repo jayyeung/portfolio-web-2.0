@@ -18,8 +18,8 @@ Redesigning & developing my portfolio
 - [ ] Make Contact Form functional
 - [ ] Google Analytics
 - [ ] Refactor & Fix styling
-    - Fix link styling on hover
-    - Make link bg wrappable
+    - [X] Fix link styling on hover
+    - [X] Make link bg wrappable
 
 ### Extras (Misc)
 - [ ] Animations
