@@ -1,0 +1,9 @@
+{
+  "name": "Jason Yeung",
+  "e-mail": "contact@jyeung.me",
+  "social": [
+    { "label": "Github", "to": "https://github.com/jayyeung" },
+    { "label": "Behance", "to": "https://www.behance.net/jyeung" },
+    { "label": "Codepen", "to": "https://codepen.io/jyeung/" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "role": "Computer Science Student @ SFU",
+  "experience": [
+    { 
+      "label": "Main Experience",
+      "skills": "HTML/CSS • JavaScript"
+    },
+    { 
+      "label": "Front-end Libraries",
+      "skills": "Sass • Gulp • Webpack • React • Vue • JQuery"
+    },
+    { 
+      "label": "Design",
+      "skills": "Adobe XD • Photoshop • Inkscape • InDesign"
+    },
+    { 
+      "label": "Prior Experience",
+      "skills": "Python • Java • Go • C/C++"
+    }
+  ]
+}
