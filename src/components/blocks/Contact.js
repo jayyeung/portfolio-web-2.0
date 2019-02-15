@@ -79,15 +79,15 @@ class Contact extends Component {
     const { formHidden } = this.state;
 
     return (
-      <Container> 
+      <Container id='contact'> 
         <ContactContainer>
           <TextContainer>
             <ContactLabel alt='em'>Contact Me</ContactLabel>
             
-            <h4 className='hidden sm:block mb-16'>Thanks for viewing my site!</h4>
+            <h4 className='hidden sm:block mb-4'>Thanks for viewing my site!</h4>
             <p>If you have any concerns, feedback or want to say hi, you can contact me using my e-mail below! Thanks!</p>
 
-            <div className='inline-block mt-16'>
+            <div className='inline-block mt-24'>
               <Label className='mr-24' alt='hl'>E-mail</Label>
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
