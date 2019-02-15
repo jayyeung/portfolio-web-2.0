@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { StaticQuery, graphql } from "gatsby";
 
 // Elements
 import Label from '../elements/Label';
@@ -26,22 +27,28 @@ const ListLink = List.Link = styled.a`
 
 // Class
 const Social = (props) => (
-  <List {...props}>
-    <List.Link href='http://Github.com' target='_blank'>
-      <em className='icon-github mr-12'/>
-      <Label alt='undl'>Github</Label>
-    </List.Link>
+  <StaticQuery
+  query = {graphql`
+    query {
+      dataJson {
+        social {
+          label
+          to
+        }
+      }
+    }
+  `}
 
-    <List.Link href='http://Github.com' target='_blank'>
-      <em className='icon-codepen mr-12'/>
-      <Label alt='undl'>Codepen</Label>
-    </List.Link>
-
-    <List.Link href='http://Github.com' target='_blank'>
-      <em className='icon-behance mr-12'/>
-      <Label alt='undl'>Behance</Label>
-    </List.Link>
-  </List>
+  render = {({ dataJson }) => (
+    <List {...props}>
+      { dataJson.social.map((node, i) => (
+        <List.Link href={node.to} target='_blank' key={`social-${i}`}>
+          <em className={`icon-${node.label.toLowerCase()} mr-12`}/>
+          <Label alt='undl'>{node.label}</Label>
+        </List.Link>
+      )) }
+    </List>
+  )}/>
 );
   
 export default Social;

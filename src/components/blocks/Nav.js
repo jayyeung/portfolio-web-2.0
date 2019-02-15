@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticQuery, graphql } from "gatsby";
 
 // Elements
 import Container from '../elements/Container';
@@ -41,25 +42,43 @@ const MenuItem = Menu.Li = styled.li`
 
 // Class
 const Nav = () => (
-  <Root>
-    <Container className='flex items-center justify-between'>
-      <div className='flex items-center'>
-        {/*<span className='font-heading font-bold text-lg text-primary' alt='em'>Jason Yeung</span>*/} 
-      </div>
+  <StaticQuery
+  query = {graphql`
+    query {
+      allNavJson {
+        edges {
+          node {
+            label
+            to
+          }
+        }
+      }
+    }
+  `}
+  
+  render = {({ allNavJson }) => (
+    <Root>
+      <Container className='flex items-center justify-between'>
+        <div className='flex items-center'>
+          {/*<span className='font-heading font-bold text-lg text-primary' alt='em'>Jason Yeung</span>*/} 
+        </div>
 
-      <NavMenu>
-        <MenuButton>Menu</MenuButton>
+        <NavMenu>
+          <MenuButton>Menu</MenuButton>
 
-        <MenuContainer>
-          <Menu>
-            <Menu.Li><Link alt={['alt', 'primary']}>Work</Link></Menu.Li>
-            <Menu.Li><Link alt={['alt', 'primary']}>About</Link></Menu.Li>
-            <Menu.Li><Link alt={['alt', 'primary']}>Contact</Link></Menu.Li>
-          </Menu>
-        </MenuContainer>
-      </NavMenu>
-    </Container>
-  </Root>
+          <MenuContainer>
+            <Menu>
+            { allNavJson.edges.map(({ node }, i) => (
+                <Menu.Li key={`navLink-${i}`}>
+                  <Link to={node.to} alt={['alt','primary']}>{node.label}</Link>
+                </Menu.Li>
+            )) }
+            </Menu>
+          </MenuContainer>
+        </NavMenu>
+      </Container>
+    </Root>
+  )}/>
 );
 
 export default Nav;

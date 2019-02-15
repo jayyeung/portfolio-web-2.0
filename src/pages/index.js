@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 // Assets
+import avatar from '../images/avatar-pic.png';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
@@ -13,6 +16,42 @@ import Social from '../components/blocks/Social';
 import Container from '../components/elements/Container';
 import Label from '../components/elements/Label';
 import Link from '../components/elements/Link';
+
+// Query
+export const query = graphql`
+  query FrontPageQuery {
+    dataJson {
+      name
+      e_mail
+    }
+    
+    pagesJson {
+      role
+      experience {
+        label
+        skills
+      }
+    }
+
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: {regex : "\/work/"} },
+      sort: {fields: [frontmatter___order], order: DESC}
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            type
+            demo
+            source
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+
 
 // Sub Elements
 const Header = styled.header`
@@ -28,50 +67,51 @@ const Section = styled.section`
 `;
 
 const Skills = styled.aside`
-  ${tw`border sm:float-left md:float-right p-32 mb-32 sm:mr-32 md:mr-none md:ml-32`}
-  max-width: 400px;
+  ${tw`border sm:float-left md:float-right px-32 py-16 mb-32 sm:mb-none sm:mr-32 md:mr-none md:ml-32`}
 `;
 
 const SkillRow = Skills.row = styled.ul`
   ${tw`list-reset`}
-  &:not(last-child) { ${tw`mb-24`} }
 `;
 
 const SkillItem = Skills.item = styled.li`
   span { ${tw`text-gray-dark`} }
 `;
 
-const WorkItem = () => (
-  <div className='mt-60 xl:mt-80'>
-    <div className='flex flex-wrap justify-between'>
-      <h4 className='w-full sm:w-auto'><a href='#'>Modular Type</a></h4>
-      <Label className='text-gray-darker mb-4'>Javascript Plugin</Label>
-    </div>
-    <p className='mt-12'>
-      Love Fluffy is a simple web game using plain JavaScript, SVGs, 
-      and GSAP for the animations and interactions in the game.
-    </p>
+const WorkItem = ({ data }) => {
+  const { title, type, description, demo, source } = data;
 
-    <div className='mt-12'>
-      <Link alt={['alt','primary']} to='http://google.ca'>Demo</Link>
-      <Link className='ml-16' alt='alt'>Source</Link>
+  return (
+    <div className='mt-60 xl:mt-80'>
+      <div className='flex flex-wrap justify-between'>
+        <h4 className='w-full sm:w-auto'>
+          <a href={demo || source || '#'} target='_blank'>{title}</a>
+        </h4>
+        <Label className='text-gray-darker mb-4'>{type}</Label>
+      </div>
+      <p>{description}</p>
+
+      <div className='mt-8'>
+        { (demo) ? <Link className='mr-16' alt={['alt','primary']} to={demo}>Demo</Link> : ''}
+        { (source) ? <Link alt='alt' to={source}>Source</Link> : ''}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Sub Components
-const Introduction = () => (
-  <Container>
+const Introduction = ({ data }) => (
+  <Container id='intro'>
     <Header>
       <h1 className='w-full'>
         Welcome there!<br/>
-        My name's <span className='font-bold text-primary inline-block'>Jason Yeung,</span><br/>
+        My name's <span className='text-primary inline-block'>{data.name},</span><br/>
         I am an aspiring Front-end Developer.
       </h1>
 
       <div className='md:w-6/12 lg:w-4/12 pr-24 mt-32'>
         <Label className='mr-24' alt='hl'>E-mail</Label>
-        <Link className='inline-block'>contact@jason-yeung.me</Link>                
+        <Link className='inline-block' to={`mailto:${data.e_mail}`}>{data.e_mail}</Link>                
       </div>
       
       <div className='md:w-6/12 lg:w-8/12 mt-24 sm:mt-32'>
@@ -83,8 +123,8 @@ const Introduction = () => (
   </Container>
 );
 
-const Work = () => (
-  <Container>
+const Work = ({ data }) => (
+  <Container id='work'>
     <Section>
       <div className='lg:w-4/12 px-12 md:pr-60 mb-40'>
         <Label className='mb-8' alt='em'>My Work</Label>
@@ -96,7 +136,9 @@ const Work = () => (
       </div>
 
       <div className='lg:w-8/12 px-12 xl:pr-120 -mt-60'>
-        <WorkItem />
+        { data.edges.map(({ node }, i) => (
+          <WorkItem key={`work-${i}`} data={node.frontmatter} />
+        )) }
       </div>
     </Section>
 
@@ -104,8 +146,8 @@ const Work = () => (
   </Container>
 );
 
-const About = () => (
-  <Container>
+const About = ({ data }) => (
+  <Container id='about'>
     <Section>
       <div className='lg:w-2/12 xl:w-3/12 px-12 md:pr-40 mb-40'>
         <Label className='mb-8' alt='em'>About Me</Label>
@@ -114,24 +156,21 @@ const About = () => (
       <div className='w-full lg:w-10/12 xl:w-9/12 px-12 mb-40'>
 
         <Skills>
-          <Label alt={['hl']}>Main Skills</Label>
-          <Skills.row>
-            <Skills.item>HTML/CSS <span>–</span> SCSS</Skills.item>
-            <Skills.item>JavaScript <span>–</span> React • Vue • JQuery</Skills.item>
-          </Skills.row>
-          
-          <Label alt={['hl']}>Prior Experience</Label>
-          <Skills.row>
-            <Skills.item>Languages <span>–</span> Python • Java • Go • C/C++</Skills.item>
-            <Skills.item>Design Tools <span>–</span> React • Vue</Skills.item>
-          </Skills.row>
+          { data.experience.map(({ label, skills }, i) => (
+            <div className='my-16' key={`row-${i}`}>
+              <Label alt={['hl']}>{label}</Label>
+              <Skills.row>
+                <Skills.item>{skills}</Skills.item>
+              </Skills.row>
+            </div> 
+          ))}
         </Skills>
 
         <div>
           <div className='flex flex-wrap items-center mb-32'>
             <Avatar>
-              <Avatar.img src='http://placehold.it/500x500'/>
-              <Avatar.name status='Feeling Curious'>Jason Yeung</Avatar.name>
+              <Avatar.img src={avatar}/>
+              <Avatar.name status={data.role}>Jason Yeung</Avatar.name>
             </Avatar>
           </div>
 
@@ -175,13 +214,16 @@ const About = () => (
 
 
 // Main Page
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]} />
+    <SEO 
+      title="Portfolio" 
+      keywords={['portfolio', 'Jason Yeung', 'Front-end Developer', 'design', 'development']} 
+    />
 
-    <Introduction />
-    <Work />
-    <About />
+    <Introduction data={data.dataJson}/>
+    <Work data={data.allMarkdownRemark}/>
+    <About data={data.pagesJson}/>
   </Layout>
 );
 
