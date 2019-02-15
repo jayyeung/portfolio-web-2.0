@@ -10,13 +10,19 @@ Redesigning & developing my portfolio
 - [X] Edit Links to work externally & internally in Gatsby
 
 ### Add main functionality (Functionality)
-- [ ] Add data
-- [ ] Link data to GraphQL
-- [ ] Link data to components 
+- [X] Add data
+- [X] Link data to GraphQL
+- [X] Link data to components 
 
-### Secondaries (Misc)
+### Secondaries
 - [ ] Make Contact Form functional
+- [ ] Google Analytics
 - [ ] Refactor & Fix styling
+    - Fix link styling on hover
+    - Make link bg wrappable
+
+### Extras (Misc)
+- [ ] Animations
 
 ### Add blog (Feature - Currently low priority)
 - [ ] Add blog components (templates & front-page component)
