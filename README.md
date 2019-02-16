@@ -15,9 +15,10 @@ Redesigning & developing my portfolio
 - [X] Link data to components 
 
 ### Secondaries
-- [ ] Make Contact Form functional
-- [ ] Google Analytics
-- [ ] Refactor & Fix styling
+- [X] Deploy on Netlify
+- [X] Google Analytics
+- [X] Make Contact Form functional
+- [X] Refactor & Fix styling
     - [X] Fix link styling on hover
     - [X] Make link bg wrappable
 
