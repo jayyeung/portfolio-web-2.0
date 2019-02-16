@@ -5,7 +5,6 @@ import { StaticQuery, graphql } from "gatsby";
 // Elements
 import Label from '../elements/Label';
 
-// Local Elements
 const List = styled.div`
   ${tw`inline-block`}
   span { display: none; }
@@ -25,7 +24,8 @@ const ListLink = List.Link = styled.a`
   &:hover { ${tw`text-black-light`} }
 `;
 
-// Class
+
+// Main
 const Social = (props) => (
   <StaticQuery
   query = {graphql`

@@ -7,7 +7,6 @@ import Container from '../elements/Container';
 import Label from '../elements/Label';
 import Link from '../elements/Link';
 
-// Local Elements
 const Root = styled.nav`
   ${tw`absolute pin-t pin-l pin-r py-24 md:py-40`}
   z-index: 9999;
@@ -40,7 +39,8 @@ const MenuItem = Menu.Li = styled.li`
   ${tw`block text-sm border-none mb-12`}
 `;
 
-// Class
+
+// Main
 const Nav = () => (
   <StaticQuery
   query = {graphql`

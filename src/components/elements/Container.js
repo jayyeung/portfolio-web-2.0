@@ -1,16 +1,10 @@
-import styled, { css } from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
-
-const MODIFIERS = {
-};
+import styled from 'styled-components';
 
 const Container = styled.div`
   ${tw`px-16`}
+  margin: auto;
   width: 90vw;
   max-width: 1400px;
-  
-  margin: auto;
-  ${applyStyleModifiers(MODIFIERS, 'alt')};
 `;
 
 export default Container;
