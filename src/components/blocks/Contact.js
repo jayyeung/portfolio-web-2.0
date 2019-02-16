@@ -12,10 +12,6 @@ const ContactContainer = styled.div`
   ${tw`bg-white border border-primary text-center mt-120 md:mt-180 -mb-4`}
 `;
 
-const TextContainer = styled.div`
-  ${tw`md:w-10/12 lg:w-7/12 px-24 pb-72 -mt-32 mx-auto`}
-`;
-
 const FormContainer = styled.div`
   ${tw`relative overflow-hidden my-52`} 
   height: 6rem;
@@ -33,6 +29,10 @@ const FormContainer = styled.div`
     height: auto;
     &::after { display: none; }
   `}
+`;
+
+const TextContainer = styled.div`
+  ${tw`md:w-10/12 lg:w-7/12 px-24 pb-72 -mt-32 mx-auto`}
 `;
 
 const ContactLabel = styled(Label)`
@@ -123,23 +123,23 @@ class Contact extends Component {
             
               <ContactForm onSubmit={this.onFormSubmit}>
                 <ContactForm.row className='hidden'>
-                  <label for='bot'>Don't fill this out</label>
+                  <label htmlFor='bot'>Don't fill this out</label>
                   <input id='bot' name='bot'/>
                 </ContactForm.row>
 
                 <ContactForm.row className='sm:w-6/12'>
-                  <label for='name'>Name</label>
-                  <input id='name' type='text' value={name} onChange={this.inputChange}/>
+                  <label htmlFor='name'>Name</label>
+                  <input id='name' type='text' value={name} onChange={this.inputChange} required/>
                 </ContactForm.row>
 
                 <ContactForm.row className='sm:w-6/12'>
-                  <label for='email'>E-mail</label>
-                  <input id='email' type='email' value={email} onChange={this.inputChange}/>
+                  <label htmlFor='email'>E-mail</label>
+                  <input id='email' type='email' value={email} onChange={this.inputChange} required/>
                 </ContactForm.row>
                   
                 <ContactForm.row>
-                  <label for='message'>Message</label>
-                  <textarea id='message' className='mb-24' value={message} onChange={this.inputChange}/>
+                  <label htmlFor='message'>Message</label>
+                  <textarea id='message' className='mb-24' value={message} onChange={this.inputChange} required/>
                   <div className='flex justify-between items-center'>
                     <Button alt='primary' type='submit'>Send message</Button>
                     <Link alt='alt' onClick={this.toggleForm}>Hide Form</Link>

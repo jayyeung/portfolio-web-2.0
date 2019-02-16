@@ -22,6 +22,8 @@
   font-range: 400px 1680px;
 }
 
+body { overflow-x: hidden; } 
+
 /* TYPE */
 h1, h2, h3, h4, h5, h6 {
   @apply font-heading font-normal text-lg mb-4;
