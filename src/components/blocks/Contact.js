@@ -57,12 +57,22 @@ const HideFormButton = styled(Button)`
   ${({ hidden }) => hidden && `display: none;`}
 `;
 
-// Class
+// Main
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+};
+
 class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formHidden: true
+      formHidden: true,
+
+      name: '',
+      email: '',
+      message: '',
     };
   }
 
@@ -71,12 +81,26 @@ class Contact extends Component {
     this.setState({formHidden: !val});
   }
 
-  onFormSubmit = (e) => {
+  onFormSubmit = e => {
     e.preventDefault();
+    const { formHidden, ...formInfo } = this.state;
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...formInfo })
+    })
+    .then(() => alert("Success!"))
+    .catch(error => alert(error));
   }
+
+  inputChange = e => this.setState({ [e.target.id]: e.target.value });
   
   render() {
-    const { formHidden } = this.state;
+    const { 
+      formHidden, 
+      name, email, message 
+    } = this.state;
 
     return (
       <Container id='contact'> 
@@ -92,25 +116,30 @@ class Contact extends Component {
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
             
-            <FormContainer expand={!formHidden}>
+            <FormContainer expand={!formHidden} netlify-honeypot="bot">
               <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
                 Use Contact Form
               </HideFormButton>
             
               <ContactForm onSubmit={this.onFormSubmit}>
-                <ContactForm.row className='sm:w-6/12'>
-                  <label>Name</label>
-                  <input type='text'/>
+                <ContactForm.row className='hidden'>
+                  <label for='bot'>Don't fill this out</label>
+                  <input id='bot' name='bot'/>
                 </ContactForm.row>
 
                 <ContactForm.row className='sm:w-6/12'>
-                  <label>E-mail</label>
-                  <input type='text'/>
+                  <label for='name'>Name</label>
+                  <input id='name' type='text' value={name} onChange={this.inputChange}/>
+                </ContactForm.row>
+
+                <ContactForm.row className='sm:w-6/12'>
+                  <label for='email'>E-mail</label>
+                  <input id='email' type='email' value={email} onChange={this.inputChange}/>
                 </ContactForm.row>
                   
                 <ContactForm.row>
-                  <label>Message</label>
-                  <textarea className='mb-24' type='text'/>
+                  <label for='message'>Message</label>
+                  <textarea id='message' className='mb-24' value={message} onChange={this.inputChange}/>
                   <div className='flex justify-between items-center'>
                     <Button alt='primary' type='submit'>Send message</Button>
                     <Link alt='alt' onClick={this.toggleForm}>Hide Form</Link>
