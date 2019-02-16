@@ -6,13 +6,15 @@ import avatar from '../../images/avatar-pic.png';
 
 // Blocks
 import Avatar from '../blocks/Avatar';
+import Codepen from './codepen';
 
 // Elements
 import Container from '../elements/Container';
 import Label from '../elements/Label';
+import Hr from '../elements/Hr';
 
 const Skills = styled.aside`
-  ${tw`border sm:float-left md:float-right px-32 py-16 mb-32 sm:mb-none sm:mr-32 md:mr-none md:ml-32`}
+  ${tw`border sm:float-left md:float-right px-32 py-16 mb-24 sm:mr-32 md:mr-none md:ml-32`}
 `;
 
 const SkillRow = Skills.row = styled.ul`
@@ -27,6 +29,8 @@ const SkillItem = Skills.item = styled.li`
 // Main
 const About = ({ data }) => (
   <Container id='about'>
+    <Hr />
+
     <div className='flex flex-wrap -mx-12'>
       <div className='lg:w-2/12 xl:w-3/12 px-12 md:pr-40 mb-40'>
         <Label className='mb-8' alt='em'>About Me</Label>
@@ -77,15 +81,21 @@ const About = ({ data }) => (
         </blockquote>
 
         <div className='lg:pr-120'>
-          <p>
+          <p className='mb-32'>
             My eagerness to learn has also led me to discover design, and how something 
             looks and feels is just as important as how it should function. 
           </p>
-
-          <div>
-            
-          </div>
         </div>
+
+      </div>
+    </div>
+
+    <div className='flex flex-wrap -mx-12'>
+      <div className='lg:w-2/12 xl:w-3/12 px-12 md:pr-40 mb-40'>
+      </div>
+
+      <div className='w-full lg:w-10/12 xl:w-9/12 px-12 mb-40'>
+        <Codepen />
       </div>
     </div>
   </Container>
