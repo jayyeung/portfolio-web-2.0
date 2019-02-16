@@ -8,10 +8,8 @@ import Social from '../blocks/Social';
 import Container from '../elements/Container';
 import Label from '../elements/Label';
 import Link from '../elements/Link';
-import Hr from '../elements/Hr';
-
 const Header = styled.header`
-  ${tw`flex flex-wrap md:mt-60 lg:mt-120 pt-120`}
+  ${tw`flex flex-wrap mt-60 md:mt-80 lg:mt-120 pt-120`}
 `;
 
 
@@ -34,8 +32,6 @@ const Intro = ({ data }) => (
         <Social className='flex' labelled />
       </div>
     </Header>
-
-    <Hr />
   </Container>
 );
 

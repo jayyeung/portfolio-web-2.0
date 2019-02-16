@@ -31,6 +31,8 @@ const WorkItem = ({ data }) => {
 
 const Work = ({ data }) => (
   <Container id='work'>
+    <Hr />
+
     <div className='flex flex-wrap -mx-12'>
       <div className='lg:w-4/12 px-12 md:pr-60 mb-40'>
         <Label className='mb-8' alt='em'>My Work</Label>
@@ -47,8 +49,6 @@ const Work = ({ data }) => (
         )) }
       </div>
     </div>
-
-    <Hr />
   </Container>
 );
 
