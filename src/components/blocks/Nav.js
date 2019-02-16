@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery, graphql } from "gatsby";
 
+// Assets
+import logo from '../../images/logo.svg';
+
 // Elements
 import Container from '../elements/Container';
 import Label from '../elements/Label';
@@ -39,6 +42,9 @@ const MenuItem = Menu.Li = styled.li`
   ${tw`block text-sm border-none mb-12`}
 `;
 
+const Logo = styled.img`
+  width: 3.5rem;
+`;
 
 // Main
 const Nav = () => (
@@ -59,9 +65,9 @@ const Nav = () => (
   render = {({ allNavJson }) => (
     <Root>
       <Container className='flex items-center justify-between'>
-        <div className='flex items-center'>
-          {/*<span className='font-heading font-bold text-lg text-primary' alt='em'>Jason Yeung</span>*/} 
-        </div>
+        <Link className='flex items-center' to='/' alt='primary'>
+          <Logo src={logo} alt='logo' />
+        </Link>
 
         <NavMenu>
           <MenuButton>Menu</MenuButton>
