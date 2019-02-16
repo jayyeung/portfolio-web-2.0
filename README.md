@@ -25,7 +25,9 @@ Redesigning & developing my portfolio
 ### Extras (Fixes & Polish)
 - [ ] Animations
 - [ ] Success message on contact send
-- [ ] Logo
+- [X] Logo
+- [X] Menu Styling
+- [X] Codepen Display
 
 ### Add blog (Feature - Currently low priority)
 - [ ] Add blog components (templates & front-page component)
