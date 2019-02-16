@@ -46,6 +46,10 @@
   vertical-align: middle;
 }
 
+.icon-menu:before {
+  content: "\e900";
+  vertical-align: text-bottom;
+}
 .icon-github:before {
   content: "\f09b";
 }

@@ -70,7 +70,10 @@ const Nav = () => (
         </Link>
 
         <NavMenu>
-          <MenuButton>Menu</MenuButton>
+          <MenuButton>
+            <em className='icon-menu mr-4'/>
+            Menu
+          </MenuButton>
 
           <MenuContainer>
             <Menu>
