@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { applyStyleModifiers } from 'styled-components-modifiers';
 import { Link as GatsbyLink } from 'gatsby';
 
-
 const MODIFIERS = {
   alt: () => ({
     styles: css`
