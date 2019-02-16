@@ -45,8 +45,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-134601382-1",
+        trackingId: 'UA-134601382-1',
       },
+    },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: `./src/images/favicon.png`,
+        background: '#fff',
+        theme_color: '#fff',
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
