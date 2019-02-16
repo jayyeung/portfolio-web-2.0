@@ -22,8 +22,10 @@ Redesigning & developing my portfolio
     - [X] Fix link styling on hover
     - [X] Make link bg wrappable
 
-### Extras (Misc)
+### Extras (Fixes & Polish)
 - [ ] Animations
+- [ ] Success message on contact send
+- [ ] Logo
 
 ### Add blog (Feature - Currently low priority)
 - [ ] Add blog components (templates & front-page component)
