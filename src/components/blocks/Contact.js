@@ -109,14 +109,17 @@ class Contact extends Component {
             <ContactLabel alt='em'>Contact Me</ContactLabel>
             
             <h4 className='hidden sm:block mb-4'>Thanks for viewing my site!</h4>
-            <p>If you have any concerns, feedback or want to say hi, you can contact me using my e-mail below! Thanks!</p>
+            <p>
+              If you have any concerns, feedback or want to say hi, 
+              you can contact me using my e-mail below! Thanks!
+            </p>
 
             <div className='inline-block mt-24'>
               <Label className='mr-24' alt='hl'>E-mail</Label>
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
             
-            <FormContainer expand={!formHidden} netlify-honeypot="bot">
+            <FormContainer expand={!formHidden} method='POST' data-netlify netlify-honeypot="bot">
               <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
                 Use Contact Form
               </HideFormButton>
@@ -129,17 +132,17 @@ class Contact extends Component {
 
                 <ContactForm.row className='sm:w-6/12'>
                   <label htmlFor='name'>Name</label>
-                  <input id='name' type='text' value={name} onChange={this.inputChange} required/>
+                  <input id='name' name='name' type='text' value={name} onChange={this.inputChange} required/>
                 </ContactForm.row>
 
                 <ContactForm.row className='sm:w-6/12'>
                   <label htmlFor='email'>E-mail</label>
-                  <input id='email' type='email' value={email} onChange={this.inputChange} required/>
+                  <input id='email' name='email' type='email' value={email} onChange={this.inputChange} required/>
                 </ContactForm.row>
                   
                 <ContactForm.row>
                   <label htmlFor='message'>Message</label>
-                  <textarea id='message' className='mb-24' value={message} onChange={this.inputChange} required/>
+                  <textarea id='message' name='message' className='mb-24' value={message} onChange={this.inputChange} required/>
                   <div className='flex justify-between items-center'>
                     <Button alt='primary' type='submit'>Send message</Button>
                     <Link alt='alt' onClick={this.toggleForm}>Hide Form</Link>
