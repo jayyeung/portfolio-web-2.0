@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 // Elements
 import Link from '../elements/Link';
+
+const PenContainer = styled.div`
+  ${tw`flex overflow-hidden overflow-x-auto -mx-12 mt-16`}
+`;
+
+const PenItem = styled.a`
+  ${tw`w-full shadow mx-12`}
+  min-width: 250px;
+`;
+
+const PenImage = PenItem.img = styled.img`
+  ${tw`w-full h-full object-cover`}
+`;
+
 
 class SocialDisplay extends Component {
   constructor(props) {
@@ -14,7 +29,7 @@ class SocialDisplay extends Component {
 
   componentDidMount() {
     fetch('https://cpv2api.com/pens/popular/jyeung')
-      .then(res => res.json().then(({ data }) => {
+      .then(res => (res.status === 200) && res.json().then(({ data }) => {
         const limit = 3;
         this.setState({ data: data.slice(0, limit) });
       }));
@@ -24,21 +39,23 @@ class SocialDisplay extends Component {
     const { data, profile } = this.state;
     return (
       <section className={this.props.className}>
-        <div className='flex justify-between items-center'>
-          <Link alt='alt' to={profile}>
-            <em className='icon-codepen mr-8'/>
-            Codepen
-          </Link>
-          <Link alt='primary' to={profile}>View all pens</Link>
-        </div> 
+        { (!data) ? '' : (
+          <div className='flex justify-between items-center'>
+            <Link alt='alt' to={profile}>
+              <em className='icon-codepen mr-8'/>
+              Codepen
+            </Link>
+            <Link alt='primary' to={profile}>View all pens</Link>
+          </div> 
+        )}
 
-        <div className='flex -mx-12 mt-16'>
-          { data && data.map(item => (
-            <a className='w-full shadow mx-12' href={item.link} target='_blank'>
-              <img className='w-full h-full object-cover' src={item.images.small}/>
-            </a>
+        <PenContainer>
+          { data && data.map((item, i) => (
+            <PenItem href={item.link} target='_blank' key={`pen-${i}`}>
+              <PenItem.img src={item.images.small} />
+            </PenItem>
           ))}
-        </div>
+        </PenContainer>
       </section>
     );
   }
