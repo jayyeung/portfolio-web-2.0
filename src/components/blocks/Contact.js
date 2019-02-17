@@ -60,8 +60,8 @@ const HideFormButton = styled(Button)`
 // Main
 const encode = (data) => {
   return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
 };
 
 class Contact extends Component {
@@ -69,6 +69,7 @@ class Contact extends Component {
     super(props);
     this.state = {
       formHidden: true,
+      formSending: false,
 
       name: '',
       email: '',
@@ -81,16 +82,29 @@ class Contact extends Component {
     this.setState({formHidden: !val});
   }
 
-  onFormSubmit = e => {
-    e.preventDefault();
-    const { formHidden, ...formInfo } = this.state;
+  formSent = () => sessionStorage.getItem('formSent');
 
+  onFormSubmit = e => {
+    const { 
+      formHidden, formSending, 
+      ...formInfo 
+    } = this.state;
+    
+    e.preventDefault();
+    if (this.formSent() || formSending) return;
+    this.setState({ formSending: true });
+    
     fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...formInfo })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...formInfo })
     })
-    .then(() => alert("Success!"))
+    .then(res => {
+      this.setState({ formSending: false });
+      if (res.status !== 200) return;      
+      sessionStorage.setItem('formSent', true);
+      alert('sent!')
+    })
     .catch(error => alert(error));
   }
 
@@ -108,7 +122,7 @@ class Contact extends Component {
           <TextContainer>
             <ContactLabel alt='em'>Contact Me</ContactLabel>
             
-            <h4 className='hidden sm:block mb-4'>Thanks for viewing my site!</h4>
+            <h3 className='hidden sm:block mb-4'>Get in touch with me</h3>
             <p>
               If you have any concerns, feedback or want to say hi, 
               you can contact me using my e-mail below! Thanks!

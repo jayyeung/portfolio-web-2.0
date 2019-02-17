@@ -10,6 +10,7 @@ import Codepen from './codepen';
 
 // Elements
 import Container from '../elements/Container';
+import Link from '../elements/Link';
 import Label from '../elements/Label';
 import Hr from '../elements/Hr';
 
@@ -64,7 +65,8 @@ const About = ({ data }) => (
           </p>
 
           <p>
-            Currently, I am a Computer Science student at Simon Fraser University in BC, Canada. 
+            Currently, I am a Computer Science student at{' '}
+            <Link alt='primary' to='https://sfu.ca'>Simon Fraser University</Link> in BC, Canada. 
             I am looking to become a Front-end developer.
           </p>
         </div>
@@ -86,18 +88,17 @@ const About = ({ data }) => (
             looks and feels is just as important as how it should function. 
           </p>
         </div>
-
       </div>
     </div>
 
     <div className='flex flex-wrap -mx-12'>
-      <div className='lg:w-2/12 xl:w-3/12 px-12 md:pr-40 mb-40'>
-      </div>
-
+      <div className='lg:w-2/12 xl:w-3/12 px-12 md:pr-40 mb-40'></div>
       <div className='w-full lg:w-10/12 xl:w-9/12 px-12 mb-40'>
         <Codepen />
       </div>
     </div>
+
+
   </Container>
 );
 
