@@ -17,17 +17,26 @@ const Root = styled.nav`
 
 const NavMenu = styled.div`
   ${tw`relative`}
-  &:hover > * { display: initial; }
+  &:hover > * { 
+    display: initial;
+
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
 `;
 
 const MenuContainer = styled.div`
   ${tw`absolute pin-r pt-16`}
-  display: none;
-  top: 100%;
+  top: 90%;
   right: 50%;
 
+  transition: all 0.25s;
   text-align: center;
   transform: translate(50%);
+
+  visibility: hidden;
+  opacity: 0;
 `;
 
 const Menu = styled.ul`
