@@ -18,7 +18,7 @@ const PenImage = PenItem.img = styled.img`
 `;
 
 
-class SocialDisplay extends Component {
+class Codepen extends Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -32,7 +32,8 @@ class SocialDisplay extends Component {
       .then(res => (res.status === 200) && res.json().then(({ data }) => {
         const limit = 3;
         this.setState({ data: data.slice(0, limit) });
-      }));
+      }))
+      .catch(err => {});
   }
 
   render() {
@@ -61,4 +62,4 @@ class SocialDisplay extends Component {
   }
 }
   
-export default SocialDisplay;
+export default Codepen;

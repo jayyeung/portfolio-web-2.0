@@ -29,7 +29,7 @@ const Intro = ({ data }) => (
       </div>
       
       <div className='md:w-6/12 lg:w-8/12 mt-24 sm:mt-32'>
-        <Social className='flex' labelled />
+        <Social className='flex flex-wrap' labelled />
       </div>
     </Header>
   </Container>
