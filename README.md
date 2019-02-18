@@ -22,16 +22,16 @@ Redesigning & developing my portfolio
     - [X] Fix link styling on hover
     - [X] Make link bg wrappable
 
-### Extras (Fixes & Polish)
-- [ ] Animations
-- [ ] Success message on contact send
-- [X] Logo
-- [X] Menu Styling
-- [X] Codepen Display
-
 ### Add blog (Feature - Currently low priority)
 - [ ] Add blog components (templates & front-page component)
 - [ ] Add articles
 - [ ] Link data to GraphQL
 - [ ] Link data to blog components
 - [ ] Refactor Code
+
+### Extras (Fixes & Polish)
+- [ ] Animations
+- [X] Success message on contact send
+- [X] Logo
+- [X] Menu Styling
+- [X] Codepen Display
