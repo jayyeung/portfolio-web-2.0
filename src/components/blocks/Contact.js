@@ -152,8 +152,8 @@ class Contact extends Component {
     return (
       <Container id='contact'> 
         <ContactContainer className='-mb-4'>
-          <TextContainer>
-            <ContactLabel className='-mt-32' alt='em'>Contact Me</ContactLabel>
+          <TextContainer className='-mt-32'>
+            <ContactLabel alt='em'>Contact Me</ContactLabel>
             
             <h3 className='hidden sm:block mb-4'>Get in touch with me</h3>
             <p>
