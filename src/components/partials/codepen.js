@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Link from '../elements/Link';
 
 const PenContainer = styled.div`
-  ${tw`flex overflow-hidden overflow-x-auto -mx-12 mt-16`}
+  ${tw`flex overflow-hidden overflow-x-auto mt-16 -mx-12`}
 `;
 
 const PenItem = styled.a`

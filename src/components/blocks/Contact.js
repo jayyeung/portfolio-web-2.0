@@ -9,7 +9,7 @@ import Button from '../elements/Button';
 
 // Local Elements
 const ContactContainer = styled.div`
-  ${tw`bg-white border border-primary text-center mt-120 md:mt-180 -mb-4`}
+  ${tw`bg-white border border-primary text-center mt-120 -mb-4 md:mt-180`}
 `;
 
 const FormContainer = styled.div`
@@ -32,7 +32,7 @@ const FormContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-  ${tw`md:w-10/12 lg:w-7/12 px-24 pb-72 -mt-32 mx-auto`}
+  ${tw`md:w-10/12 lg:w-7/12 px-24 pb-72 mx-auto -mt-32`}
 `;
 
 const ContactLabel = styled(Label)`
