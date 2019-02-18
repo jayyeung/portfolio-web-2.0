@@ -25,6 +25,7 @@ const FormContainer = styled.div`
     );
   }
 
+  ${({ hidden }) => hidden && `display: none;`}
   ${({ expand }) => expand && `
     height: auto;
     &::after { display: none; }
@@ -41,6 +42,31 @@ const ContactLabel = styled(Label)`
 
 const ContactForm = styled.form`
   ${tw`flex flex-wrap text-left -mx-12 -mb-24`}
+`;
+
+const FormMessageSent = styled.div`
+  ${tw`flex flex-wrap justify-center items-center text-center my-80`}
+  z-index: 1;
+  ${({ hidden }) => hidden && `display: none;`}
+`;
+
+const Checkmark = styled.div`
+  ${tw`relative inline-block rounded-full shadow bg-primary`}
+  width: 5rem;
+  height: 5rem;
+
+  &::after {
+    ${tw`absolute border-primary-lighter`}
+    content: '';
+    width: 30%;
+    height: 50%;
+
+    left: 50%; top: 45%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-width: 0.4em;
+    border-left: none;
+    border-top: none;
+  }
 `;
 
 const ContactRow = ContactForm.row = styled.div`
@@ -103,7 +129,7 @@ class Contact extends Component {
       this.setState({ formSending: false });
       if (res.status !== 200) return;      
       sessionStorage.setItem('formSent', true);
-      alert('sent!')
+      this.setState({ formHidden: true });
     })
     .catch(error => alert(error));
   }
@@ -133,7 +159,8 @@ class Contact extends Component {
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
             
-            <FormContainer expand={!formHidden} method='POST' data-netlify netlify-honeypot="bot">
+            <FormContainer expand={!formHidden} hidden={this.formSent()}
+              method='POST' data-netlify netlify-honeypot="bot">
               <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
                 Use Contact Form
               </HideFormButton>
@@ -164,6 +191,17 @@ class Contact extends Component {
                 </ContactForm.row>
               </ContactForm>
             </FormContainer>
+
+            <FormMessageSent hidden={!this.formSent()}>
+              <div>
+                <Checkmark />
+                <h4 className='text-primary'>Message Sent!</h4>
+                <p>
+                  Thanks for the response!
+                  I'll get in touch with you as soon as possible!
+                </p>
+              </div>
+            </FormMessageSent>
 
           </TextContainer>
         </ContactContainer>
