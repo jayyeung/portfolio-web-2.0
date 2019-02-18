@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import URLSearchParams from '@ungap/url-search-params';
 
 // Assets
 import Social from '../blocks/Social';
@@ -20,6 +21,7 @@ const Ref = styled.span`
 
 // Main
 const Shoutout = (() => {
+  if (typeof window === 'undefined') return;
   const urlParams = new URLSearchParams(window.location.search);
   const ref = localStorage.getItem('ref') || urlParams.get('ref');
   // Ceasar shifts 13
