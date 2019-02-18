@@ -96,6 +96,7 @@ class Contact extends Component {
     this.state = {
       formHidden: true,
       formSending: false,
+      formSent: false,
 
       name: '',
       email: '',
@@ -103,21 +104,25 @@ class Contact extends Component {
     };
   }
 
+  componentDidMount() {
+    // Check if message already sent in session
+    this.setState({ formSent: !!sessionStorage.getItem('formSent') });
+  }
+
   toggleForm = () => { 
     const val = this.state.formHidden;
     this.setState({formHidden: !val});
   }
 
-  formSent = () => sessionStorage.getItem('formSent');
-
   onFormSubmit = e => {
     const { 
-      formHidden, formSending, 
+      formHidden, 
+      formSending, formSent, 
       ...formInfo 
     } = this.state;
     
     e.preventDefault();
-    if (this.formSent() || formSending) return;
+    if (formSent || formSending) return;
     this.setState({ formSending: true });
     
     fetch("/", {
@@ -127,9 +132,10 @@ class Contact extends Component {
     })
     .then(res => {
       this.setState({ formSending: false });
-      if (res.status !== 200) return;      
+      if (res.status !== 200) return;
+
       sessionStorage.setItem('formSent', true);
-      this.setState({ formHidden: true });
+      this.setState({ formHidden: true, formSent: true });
     })
     .catch(error => alert(error));
   }
@@ -138,7 +144,8 @@ class Contact extends Component {
   
   render() {
     const { 
-      formHidden, 
+      formHidden,
+      formSent, 
       name, email, message 
     } = this.state;
 
@@ -159,7 +166,7 @@ class Contact extends Component {
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
             
-            <FormContainer expand={!formHidden} hidden={this.formSent()}
+            <FormContainer expand={!formHidden} hidden={formSent}
               method='POST' data-netlify netlify-honeypot="bot">
               <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
                 Use Contact Form
@@ -192,7 +199,7 @@ class Contact extends Component {
               </ContactForm>
             </FormContainer>
 
-            <FormMessageSent hidden={!this.formSent()}>
+            <FormMessageSent hidden={!formSent}>
               <div>
                 <Checkmark />
                 <h4 className='text-primary'>Message Sent!</h4>
