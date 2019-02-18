@@ -14,8 +14,8 @@ const Name = ({ status, children }) => (
 
 const Image = styled.img`
   ${tw`w-full h-auto rounded-full shadow mr-32`}
-  width: 5rem;
-  height: 5rem;
+  width: 5em;
+  height: 5em;
 `;
 
 // Class
