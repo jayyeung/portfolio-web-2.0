@@ -128,7 +128,7 @@ class Contact extends Component {
     fetch("/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...formInfo })
+      body: encode({ 'form-name': e.target.getAttribute('name'), ...formInfo })
     })
     .then(res => {
       this.setState({ formSending: false });
@@ -171,7 +171,7 @@ class Contact extends Component {
                 Use Contact Form
               </HideFormButton>
             
-              <ContactForm onSubmit={this.onFormSubmit}
+              <ContactForm onSubmit={this.onFormSubmit} name='contact'
                 method='POST' data-netlify netlify-honeypot='bot'>
                 <ContactForm.row className='hidden'>
                   <label htmlFor='bot'>Don't fill this out</label>
