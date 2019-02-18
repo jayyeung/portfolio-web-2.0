@@ -151,7 +151,7 @@ class Contact extends Component {
 
     return (
       <Container id='contact'> 
-        <ContactContainer className='-mt-4'>
+        <ContactContainer className='-mb-4'>
           <TextContainer>
             <ContactLabel className='-mt-32' alt='em'>Contact Me</ContactLabel>
             
@@ -166,13 +166,13 @@ class Contact extends Component {
               <Link alt='primary'>contact@jason-yeung.me</Link>        
             </div>
             
-            <FormContainer expand={!formHidden} hidden={formSent}
-              method='POST' data-netlify='true' netlify-honeypot='bot'>
+            <FormContainer expand={!formHidden} hidden={formSent}>
               <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
                 Use Contact Form
               </HideFormButton>
             
-              <ContactForm onSubmit={this.onFormSubmit}>
+              <ContactForm onSubmit={this.onFormSubmit}
+                method='POST' data-netlify netlify-honeypot='bot'>
                 <ContactForm.row className='hidden'>
                   <label htmlFor='bot'>Don't fill this out</label>
                   <input id='bot' name='bot'/>
