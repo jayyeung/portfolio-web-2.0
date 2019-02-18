@@ -50,7 +50,7 @@ class Codepen extends Component {
           </div> 
         )}
 
-        <PenContainer>
+        <PenContainer className='-mt-12'>
           { data && data.map((item, i) => (
             <PenItem href={item.link} target='_blank' key={`pen-${i}`}>
               <PenItem.img src={item.images.small} />
