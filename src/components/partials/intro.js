@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import URLSearchParams from '@ungap/url-search-params';
+import 'url-search-params-polyfill';
 
 // Assets
 import Social from '../blocks/Social';
@@ -23,13 +23,13 @@ const Ref = styled.span`
 const Shoutout = (() => {
   if (typeof window === 'undefined') return;
   const urlParams = new URLSearchParams(window.location.search);
-  const ref = localStorage.getItem('ref') || urlParams.get('ref');
+  const ref = localStorage.getItem('ref') || urlParams.get('ref') || '';
   // Ceasar shifts 13
   const decode = str => (str.toUpperCase().replace(/[A-Z]/g, C => (
     String.fromCharCode((C.charCodeAt(0) % 26) + 65)))).toLowerCase();
   
   const decodeRef = decode(ref);
-  if (ref && decodeRef.slice(-6) === 'jyeung') {
+  if (decodeRef.slice(-6) === 'jyeung') {
     localStorage.setItem('ref', ref);
     return decodeRef.slice(0, decodeRef.length-6);
   }
@@ -39,7 +39,7 @@ const Intro = ({ data }) => (
   <Container id='intro'>
     <Header>
       <h1 className='w-full'>
-        { (Shoutout) ? <span>Hey <Ref>{Shoutout}</Ref>!</span> : 'Welcome there!'}
+        { (Shoutout) ? <span>Hey <Ref>{Shoutout}</Ref>!</span> : 'Welcome there!' }
         <br/>
         My name's <span className='text-primary inline-block'>{data.name},</span><br/>
         I am an aspiring Front-end Developer.
