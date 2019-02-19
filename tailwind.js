@@ -202,7 +202,7 @@ module.exports = {
     'xs': '.82rem',     // 12px
     'sm': '.9rem',      // 14px
     'base': '1rem',     // 16px
-    'lg': '1.36rem',    // 20px
+    'lg': '1.5rem',    // 20px
     'xl1': '1.66rem',   // 24px
     'xl2': '2rem',      // 30px
     'xl3': '2.5rem',   // 36px
@@ -253,8 +253,8 @@ module.exports = {
   leading: {
     'none': 1,
     'tight': 1.25,
-    'normal': 1.5,
-    'loose': 1.6667,
+    'normal': 1.67,
+    'loose': 1.84,
   },
 
 
