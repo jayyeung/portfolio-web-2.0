@@ -13,19 +13,12 @@ import Container from '../elements/Container';
 import Link from '../elements/Link';
 import Label from '../elements/Label';
 import Hr from '../elements/Hr';
+import InlineList from '../elements/InlineList';
 
 const Skills = styled.aside`
   ${tw`border sm:float-left md:float-right px-32 py-16 mb-24 sm:mr-32 md:mr-none md:ml-32`}
+  max-width: 22rem;
 `;
-
-const SkillRow = Skills.row = styled.ul`
-  ${tw`list-reset`}
-`;
-
-const SkillItem = Skills.item = styled.li`
-  span { ${tw`text-gray-dark`} }
-`;
-
 
 // Main
 const About = ({ data }) => (
@@ -40,12 +33,10 @@ const About = ({ data }) => (
       <div className='w-full lg:w-10/12 xl:w-9/12 px-12 mb-40'>
 
         <Skills>
-          { data.experience.map(({ label, skills }, i) => (
+          { data.experience.map((item, i) => (
             <div className='my-16' key={`row-${i}`}>
-              <Label alt={['hl']}>{label}</Label>
-              <Skills.row>
-                <Skills.item>{skills}</Skills.item>
-              </Skills.row>
+              <Label alt={['hl']}>{item.label}</Label>
+              <InlineList className='block' list={item.skills}/>
             </div> 
           ))}
         </Skills>
