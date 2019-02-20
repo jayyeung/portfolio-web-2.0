@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -9,6 +10,11 @@ import Footer from './footer';
 
 // Blocks
 import Nav from './blocks/Nav';
+
+// Elements
+const Root = styled.div`
+  ${tw`pt-60 md:pt-80 lg:pt-120 mt-120`}
+`;
 
 const Layout = ({ children }) => ( 
   <StaticQuery
@@ -22,11 +28,11 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div>
-        <Nav />
+      <Root>
+        <Nav/>
         {children}
         <Footer/>
-      </div>
+      </Root>
     )}
   />
 )
