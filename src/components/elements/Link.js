@@ -25,15 +25,19 @@ const MODIFIERS = {
         );
       }
   `}),
+
+  unstyled: () => ({
+    styles: css`
+      ${tw`border-none`};
+      background: none;
+  `}),
 };
 
 const LinkRoot = styled.span`
   ${tw`inline-block relative text-black pb-4 border-b-2 border-color`}
   cursor: pointer;
-  transition: opacity 0.25s;
 
   &:hover {
-    opacity: 0.8;
     background: repeating-linear-gradient(to bottom,
       transparent,
       transparent 20%,
