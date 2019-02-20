@@ -15,7 +15,7 @@ const WorkItem = ({ data }) => {
     <div className='mt-60 xl:mt-80'>
       <div className='flex flex-wrap justify-between items-center'>
         <h4 className='w-full sm:w-auto'>
-          <a href={demo || source || '#'} target='_blank'>{title}</a>
+          <Link to={demo || source || '#'} alt='unstyled'>{title}</Link>
         </h4>
         <Label className='mb-4'>{type}</Label>
       </div>

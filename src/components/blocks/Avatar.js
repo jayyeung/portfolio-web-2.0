@@ -7,7 +7,7 @@ import Label from '../elements/Label';
 // Local Elements
 const Name = ({ status, children }) => (
   <div>
-    <Label className='block font-bold mt-12'>{children}</Label>
+    <Label className='block mt-12' alt='em'>{children}</Label>
     { (status) ? <Label alt='hl'>{status}</Label> : '' }
   </div>
 );
