@@ -13,11 +13,11 @@ const WorkItem = ({ data }) => {
 
   return (
     <div className='mt-60 xl:mt-80'>
-      <div className='flex flex-wrap justify-between'>
+      <div className='flex flex-wrap justify-between items-center'>
         <h4 className='w-full sm:w-auto'>
           <a href={demo || source || '#'} target='_blank'>{title}</a>
         </h4>
-        <Label className='text-gray-darker mb-4'>{type}</Label>
+        <Label className='mb-4'>{type}</Label>
       </div>
       <p>{description}</p>
 
@@ -34,7 +34,7 @@ const Work = ({ data }) => (
     <Hr />
 
     <div className='flex flex-wrap -mx-12'>
-      <div className='lg:w-4/12 px-12 md:pr-60 mb-40'>
+      <div className='md:w-4/12 px-12 md:pr-60 mb-40'>
         <Label className='mb-8' alt='em'>My Work</Label>
         <p className='text-gray-darker mb-16'>
           Projects that I have been working on. 
@@ -43,7 +43,7 @@ const Work = ({ data }) => (
         
       </div>
 
-      <div className='lg:w-8/12 px-12 xl:pr-120 -mt-60'>
+      <div className='md:w-8/12 px-12 xl:pr-120 -mt-60'> 
         { data.edges.map(({ node }, i) => (
           <WorkItem key={`work-${i}`} data={node.frontmatter} />
         )) }

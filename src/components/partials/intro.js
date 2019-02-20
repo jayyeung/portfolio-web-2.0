@@ -11,7 +11,7 @@ import Label from '../elements/Label';
 import Link from '../elements/Link';
 
 const Header = styled.header`
-  ${tw`flex flex-wrap mt-60 md:mt-80 lg:mt-120 pt-120`}
+  ${tw`flex flex-wrap`}
 `;
 
 const Ref = styled.span`

@@ -65,7 +65,7 @@ textarea {
 input:hover, textarea:hover { @apply border-primary-light; }
 input:focus, textarea:focus { @apply border-primary bg-white; }
 
-label { @apply inline-block uppercase font-alt font-normal tracking-normal text-xs text-black mb-8; }
+.label, label { @apply inline-block uppercase font-alt font-normal tracking-normal text-xs text-black mb-8; }
 
 /**
  * This injects any component classes registered by plugins.
