@@ -1,5 +1,6 @@
 [
   { "label": "Work", "to": "/#work" },
   { "label": "About", "to": "/#about" },
+  { "label": "Articles", "to": "/#articles" },
   { "label": "Contact", "to": "/#contact" }
 ]

@@ -5,10 +5,28 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+// Blocks
+import Articles from '../components/blocks/Articles';
+
 // Partials
 import About from '../components/partials/about';
 import Intro from '../components/partials/intro';
 import Work from '../components/partials/work';
+
+// Main Page
+const IndexPage = ({ data }) => (
+  <Layout>
+    <SEO 
+      title={data.pagesJson.title} 
+      keywords={data.pagesJson.keywords} 
+    />
+
+    <Intro data={data.dataJson} />
+    <Work data={data.allMarkdownRemark} />
+    <Articles />
+    <About data={data.pagesJson} />
+  </Layout>
+);
 
 // Query
 export const query = graphql`
@@ -19,6 +37,8 @@ export const query = graphql`
     }
     
     pagesJson {
+      title
+      keywords
       role
       experience {
         label
@@ -44,19 +64,5 @@ export const query = graphql`
     }
   }
 `;
-
-// Main Page
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO 
-      title="Portfolio" 
-      keywords={['portfolio', 'Jason Yeung', 'Front-end Developer', 'design', 'development']} 
-    />
-
-    <Intro data={data.dataJson}/>
-    <Work data={data.allMarkdownRemark}/>
-    <About data={data.pagesJson}/>
-  </Layout>
-);
 
 export default IndexPage;
