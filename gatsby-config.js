@@ -22,7 +22,12 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-component`]
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
