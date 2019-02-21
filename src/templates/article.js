@@ -28,7 +28,7 @@ const Content = styled.div`
   }
 
   .gatsby-resp-image-link { 
-    ${tw`block shadow p-none my-60`}
+    ${tw`block shadow border-none p-none my-60`}
     @media screen and (min-width: 768px) {
       margin-left: -4rem;
       margin-right: -4rem;
@@ -57,10 +57,12 @@ const renderAST = new rehypeReact({
   createElement: React.createElement,
   components: { 
     'start': Label,
-    a: (props) => <Link alt='primary' {...props}/>
+    a: props => <Link alt='primary' {...props}/>
   }
 }).Compiler;
 
+
+// Main Template
 const Article = ({ data }) => {
   const article = data.markdownRemark;
   return (

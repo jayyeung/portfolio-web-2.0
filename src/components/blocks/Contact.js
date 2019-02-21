@@ -166,7 +166,7 @@ class Contact extends Component {
             </div>
             
             <FormContainer expand={!formHidden} hidden={formSent}>
-              <HideFormButton hidden={!formHidden} onClick={this.toggleForm} alt='alt'>
+              <HideFormButton hidden={!formHidden} onClick={this.toggleForm}>
                 Use Contact Form
               </HideFormButton>
             
