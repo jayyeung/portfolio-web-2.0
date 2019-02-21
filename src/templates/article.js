@@ -27,11 +27,11 @@ const Content = styled.div`
     margin: 1em 0 0.1em !important;
   }
 
-  img { 
-    ${tw`my-32 shadow`}
+  .gatsby-resp-image-link { 
+    ${tw`block shadow p-none my-60`}
     @media screen and (min-width: 768px) {
-      max-width: calc(100% + 10rem);
-      margin-left: -5rem;
+      margin-left: -4rem;
+      margin-right: -4rem;
     }
   }
 

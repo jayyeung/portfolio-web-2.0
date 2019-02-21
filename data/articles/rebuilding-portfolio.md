@@ -1,14 +1,14 @@
 ---
 title: "Rebuilding my portfolio — What I've learnt"
 date: 'Feb 20, 2019'
-tags: ['Personal', 'Life', 'Learning', 'Improvement']
+tags: ['Personal', 'Redesign', 'Learning', 'Portfolio']
 ---
 
 <start>There were a lot of things</start> I didn't like about my previous portfolio. The biggest issues were that I overestimated how much content that was needed to finish my website. I procrastinated a lot when it came to writing the case studies and felt rushed to finish them when I needed to publish the site soon.
 
-For some reference, check out my [old portfolio](https://www.google.com)
+For some reference, check out my [old portfolio](https://jasonyeung-old.netlify.com).
 
-![This is the alt text.](https://cdn-images-1.medium.com/max/2000/1*Ld2IxU9Bh-4cCvYPW0TIig.png)
+![This is the alt text.](images/test.png)
 
 #### What's next?
 **Projects**. Although I feel have the skills as developer, it certainly doesn't look like it.

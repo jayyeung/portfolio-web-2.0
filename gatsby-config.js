@@ -22,13 +22,21 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-component`]
+        plugins: [
+          `gatsby-remark-component`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 895,
+            }
+          },
+        ]
       }
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
     {
