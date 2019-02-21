@@ -20,7 +20,7 @@ import Label from '../components/elements/Label';
 const Content = styled.div`
   ${tw`inline-block md:w-8/12 xl:w-6/12 text-left mb-40`}
 
-  & > *:not(:last-child) { ${tw`block mb-32`} }
+  & > div > *:not(:last-child) { ${tw`block mb-32`} }
 
   h1, h2, h3, h4, h5, h6 {
     ${tw`font-bold`}
@@ -29,7 +29,7 @@ const Content = styled.div`
 
   img { ${tw`my-32 shadow`} }
 
-  & > *:last-child::after {
+  & > div > *:last-child::after {
     ${tw`inline-block bg-primary ml-8`}
     content: '';
     width: 0.6em;
