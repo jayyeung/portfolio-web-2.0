@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
 import { Link as GatsbyLink } from 'gatsby';
+
+import PropTypes from 'prop-types';
+import { applyStyleModifiers, styleModifierPropTypes } from 'styled-components-modifiers';
 
 const MODIFIERS = {
   alt: () => ({
@@ -62,6 +64,12 @@ const Link = ({ to, href, children, className, alt, ...other }) => {
       }
     </LinkRoot>
   );
+};
+
+Link.propTypes = {
+  alt: styleModifierPropTypes(MODIFIERS),
+  to: PropTypes.string,
+  href: PropTypes.string
 };
 
 export default Link;

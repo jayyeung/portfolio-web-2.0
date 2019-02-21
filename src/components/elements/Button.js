@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
+import { applyStyleModifiers, styleModifierPropTypes } from 'styled-components-modifiers';
 
 const MODIFIERS = {
   primary: () => ({
@@ -16,5 +16,9 @@ const Button = styled.button`
   &:hover { ${tw`bg-black-light`} }
   ${applyStyleModifiers(MODIFIERS, 'alt')};
 `;
+
+Button.propTypes = {
+  alt: styleModifierPropTypes(MODIFIERS)
+};
 
 export default Button;
