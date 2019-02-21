@@ -56,7 +56,7 @@ const About = ({ data }) => (
           </p>
 
           <p>
-            Currently, I am a Computer Science student at{' '}
+            Currently, I am a 4th year Computer Science student at{' '}
             <Link alt='primary' to='https://sfu.ca'>Simon Fraser University</Link> in BC, Canada. 
             I am looking to become a Front-end developer.
           </p>
