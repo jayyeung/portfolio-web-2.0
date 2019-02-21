@@ -17,7 +17,7 @@
 }
 
 :root {
-  @apply font-body font-medium text-black-light leading-loose;
+  @apply font-body font-medium text-black-light leading-normal;
   font-size: responsive 16px 21px;
   font-range: 400px 1680px;
 }
@@ -29,10 +29,15 @@ h1, h2, h3, h4, h5, h6 {
   @apply font-heading font-normal text-lg mb-4;
 }
 
-h1 { font-size: responsive 1.67rem 2.5rem; font-range: 400px 1680px; }
+h1 { font-size: responsive 2rem 2.5rem; font-range: 400px 1680px; } 
 h2 { @apply text-xl2; }
 h3 { @apply text-xl1; }
 h4, h5, h6 { @apply font-bold; }
+
+p {
+  line-height: responsive 1.67rem 1.84rem;
+  line-height-range: 25rem 80rem;
+}
 
 a { 
   color: inherit;
