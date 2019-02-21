@@ -27,7 +27,13 @@ const Content = styled.div`
     margin: 1em 0 0.1em !important;
   }
 
-  img { ${tw`my-32 shadow`} }
+  img { 
+    ${tw`my-32 shadow`}
+    @media screen and (min-width: 768px) {
+      max-width: calc(100% + 10rem);
+      margin-left: -5rem;
+    }
+  }
 
   & > div > *:last-child::after {
     ${tw`inline-block bg-primary ml-8`}
