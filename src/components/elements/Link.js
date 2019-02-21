@@ -34,7 +34,7 @@ const MODIFIERS = {
 };
 
 const LinkRoot = styled.span`
-  ${tw`inline-block relative text-black pb-4 border-b-2 border-color`}
+  ${tw`inline relative text-black pb-4 border-b-2 border-color`}
   cursor: pointer;
 
   &:hover {
@@ -51,13 +51,14 @@ const LinkRoot = styled.span`
   ${applyStyleModifiers(MODIFIERS, 'alt')};
 `;
 
-const Link = ({ to, children, className, alt, ...other }) => {
-  const internal = /^\/(?!\/)/.test(to);
+const Link = ({ to, href, children, className, alt, ...other }) => {
+  const linkTo = to || href;
+  const internal = /^\/(?!\/)/.test(linkTo);
   return (
     <LinkRoot className={className} alt={alt}>
       {(internal) ? 
-        <GatsbyLink to={to} {...other}>{children}</GatsbyLink> :
-        <a href={to} target='_blank' {...other}>{children}</a>
+        <GatsbyLink to={linkTo} {...other}>{children}</GatsbyLink> :
+        <a href={linkTo} target='_blank' {...other}>{children}</a>
       }
     </LinkRoot>
   );
