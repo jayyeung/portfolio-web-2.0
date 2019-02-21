@@ -163,7 +163,7 @@ class Contact extends Component {
 
             <div className='inline-block mt-24'>
               <Label className='mr-24' alt='hl'>E-mail</Label>
-              <Link alt='primary'>contact@jason-yeung.me</Link>        
+              <Link alt='primary' to='mailto:contact@jyeung.me'>contact@jyeung.me</Link>        
             </div>
             
             <FormContainer expand={!formHidden} hidden={formSent}>
