@@ -25,8 +25,6 @@ const ListLink = List.Link = styled.a`
   &:hover { ${tw`text-black-light`} }
 `;
 
-
-// Main
 const Social = (props) => (
   <StaticQuery
   query = {graphql`

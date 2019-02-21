@@ -55,7 +55,6 @@ const Logo = styled.img`
   width: 3.5rem;
 `;
 
-// Main
 const Nav = () => (
   <StaticQuery
   query = {graphql`

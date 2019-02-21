@@ -4,7 +4,6 @@ import styled from 'styled-components';
 // Elements
 import Label from '../elements/Label';
 
-// Local Elements
 const Name = ({ status, children }) => (
   <div>
     <Label className='block mt-12' alt='em'>{children}</Label>
@@ -18,7 +17,6 @@ const Image = styled.img`
   height: 5em;
 `;
 
-// Class
 const Avatar = styled.div`
   ${tw`flex flex-wrap items-center`}
 `;

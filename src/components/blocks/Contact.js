@@ -83,7 +83,6 @@ const HideFormButton = styled(Button)`
   ${({ hidden }) => hidden && `display: none;`}
 `;
 
-// Main
 const encode = (data) => {
   return Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))

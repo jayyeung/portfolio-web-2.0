@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
-
 // Elements
 import Container from '../elements/Container';
 import Label from '../elements/Label';
