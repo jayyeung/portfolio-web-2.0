@@ -44,6 +44,10 @@ a {
   text-decoration: none; 
 }
 
+code {
+  @apply font-code text-sm text-black bg-gray-light py-4 px-8;
+}
+
 /* ELEMENTS */
 hr {
   @apply bg-gray;

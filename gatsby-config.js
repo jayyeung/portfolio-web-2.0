@@ -52,7 +52,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: [`Domine:400,700`, `Barlow:500,500i,600,600i`]
+          families: [`Domine:400,700`, `Barlow:500,500i,600,600i`, `Fira Mono:500`]
         }
       }
     },

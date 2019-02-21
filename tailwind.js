@@ -174,6 +174,10 @@ module.exports = {
     'alt': [
       'Franklin Gothic',
       'sans-serif'
+    ],
+    'code': [
+      'Fira Mono',
+      'monospace'
     ]
   },
 
