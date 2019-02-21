@@ -10,7 +10,7 @@ const ListRoot = styled.ul`
 `;
 
 const ListLi = ListRoot.li = styled.li`
-  ${tw`inline-block`}
+  ${tw`inline-block capitalize`}
 `;
 
 const InlineList = ({ list, ...props }) => (
