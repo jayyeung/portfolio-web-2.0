@@ -30,8 +30,12 @@ Redesigning & developing my portfolio
 
 ### Extras (Fixes & Polish)
 - [ ] Animations
-- [ ] Add prop type checks on components
-- [ ] Refactor Code
+- [X] Refactor Code
+    - [X] Add prop type checks on components
+- [ ] Add & edit content
+    - [ ] Rewrite about me section
+    - [ ] Write article "rebuilding portfolio"
+    - [ ] Edit general sentences
 - [X] Success message on contact send
 - [X] Logo
 - [X] Menu Styling
