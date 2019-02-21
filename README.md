@@ -23,14 +23,15 @@ Redesigning & developing my portfolio
     - [X] Make link bg wrappable
 
 ### Add blog (Feature - Currently low priority)
-- [ ] Add blog components (templates & front-page component)
-- [ ] Add articles
-- [ ] Link data to GraphQL
-- [ ] Link data to blog components
-- [ ] Refactor Code
+- [X] Add blog components (templates & front-page component)
+- [X] Add articles
+- [X] Link data to GraphQL
+- [X] Link data to blog components
 
 ### Extras (Fixes & Polish)
 - [ ] Animations
+- [ ] Add prop type checks on components
+- [ ] Refactor Code
 - [X] Success message on contact send
 - [X] Logo
 - [X] Menu Styling
