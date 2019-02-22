@@ -100,7 +100,7 @@ export const query = graphql`
       htmlAst
       frontmatter {
         title
-        date
+        date(formatString: "MMM Do, YYYY")
         tags
       }
       fields {

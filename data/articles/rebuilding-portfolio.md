@@ -1,6 +1,6 @@
 ---
 title: "Rebuilding my portfolio — What I've learnt"
-date: 'Feb 20, 2019'
+date: "2019-02-20"
 tags: ['Personal', 'Redesign', 'Learning', 'Portfolio']
 ---
 
@@ -26,9 +26,8 @@ The Solution? **Articles!** Instead of having full-fledged case studies, I creat
 
 so much better than worrying about a 10 page case study for one miniscule project.
 
-#### ~~Crap Design~~ → Not-So-Crap Design
-I didn't like the design of my old site. It felt unfinished in how it looks. Well... that's because it *is* unfinished. 
-
+#### ~~Unfinished Design~~
+I didn't like the design of my old site. Well... that's because it *is* unfinished. 
 
 When designing the site, I relied on large amounts of content I didn't have. Bad mistake — I never actually finished the content so the whole site felt unfinished as a result.
 

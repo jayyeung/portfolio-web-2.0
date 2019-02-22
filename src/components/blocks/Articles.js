@@ -12,7 +12,7 @@ const ArticleItem = ({ data }) => {
   return (
     <div className='mt-60 xl:mt-80'>
       <div className='flex flex-wrap justify-between items-baseline'>
-        <InlineList className='text-primary' list={data.frontmatter.tags}/>
+        <InlineList className='text-primary mr-12' list={data.frontmatter.tags}/>
         <time><Label>{data.frontmatter.date}</Label></time>
       </div>
       <h4 className='w-full sm:w-auto mt-8'>
@@ -36,7 +36,7 @@ const Articles = ({ exclude }) => (
           node {
             frontmatter {
               title
-              date
+              date(formatString: "MMM Do, YYYY")
               tags
             }
             fields {
