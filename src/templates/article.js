@@ -88,7 +88,7 @@ const Article = ({ data }) => {
         </article>
       </Container>
 
-      <Articles />
+      <Articles exclude={[article.fields.slug]}/>
     </Layout>
   )
 };
@@ -102,6 +102,9 @@ export const query = graphql`
         title
         date
         tags
+      }
+      fields {
+        slug
       }
     }
   }

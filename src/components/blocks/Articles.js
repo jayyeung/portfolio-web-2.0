@@ -24,7 +24,7 @@ const ArticleItem = ({ data }) => {
   );
 };
 
-const Articles = () => (
+const Articles = ({ exclude }) => (
   <StaticQuery
   query = {graphql`
     query {
@@ -62,9 +62,11 @@ const Articles = () => (
         </div>
 
         <div className='md:w-8/12 px-12 xl:pr-120 -mt-60'>
-          { articles.edges.map((article, i) => (
-            <ArticleItem key={`article-${i}`} data={article.node}/>
-          )) }
+          { articles.edges.map((article, i) => {
+            const slug = article.node.fields.slug;
+            if (!exclude || !exclude.includes(slug))
+              return <ArticleItem key={`article-${i}`} data={article.node}/>
+          }) }
         </div>
       </div>
     </Container>
