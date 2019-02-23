@@ -10,7 +10,7 @@ import InlineList from '../elements/InlineList';
 
 const ArticleItem = ({ data }) => {
   return (
-    <div className='mt-60 xl:mt-80'>
+    <article className='mt-60 xl:mt-80'>
       <div className='flex flex-wrap justify-between items-baseline'>
         <InlineList className='text-primary mr-12' list={data.frontmatter.tags}/>
         <time><Label>{data.frontmatter.date}</Label></time>
@@ -20,7 +20,7 @@ const ArticleItem = ({ data }) => {
       </h4>
 
       <Link className='mt-12' alt='alt' to={data.fields.slug}>Read More</Link>
-    </div>
+    </article>
   );
 };
 

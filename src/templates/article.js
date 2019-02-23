@@ -4,6 +4,7 @@ import rehypeReact from 'rehype-react';
 import { graphql } from 'gatsby';
 
 // Assets
+import '../css/code.css';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import circle from '../images/half-circle.svg';
@@ -18,7 +19,7 @@ import Link from '../components/elements/Link';
 import Label from '../components/elements/Label';
 
 const Content = styled.div`
-  ${tw`inline-block md:w-8/12 xl:w-6/12 text-left mb-40`}
+  ${tw`inline-block w-full md:w-8/12 xl:w-6/12 text-left mb-40`}
 
   & > div > *:not(:last-child) { ${tw`block mb-32`} }
 
@@ -35,7 +36,7 @@ const Content = styled.div`
     }
   }
 
-  & > div > *:last-child::after {
+  & > div > *:not(.gatsby-highlight):last-child::after {
     ${tw`inline-block bg-primary ml-8`}
     content: '';
     width: 0.6em;

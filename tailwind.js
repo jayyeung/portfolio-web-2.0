@@ -176,7 +176,7 @@ module.exports = {
       'sans-serif'
     ],
     'code': [
-      'Fira Mono',
+      'IBM Plex Mono',
       'monospace'
     ]
   },

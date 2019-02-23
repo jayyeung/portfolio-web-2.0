@@ -28,6 +28,7 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-component`,
+          `gatsby-remark-prismjs`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -53,7 +54,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         google: {
-          families: [`Domine:400,700`, `Barlow:500,500i,600,600i`, `Fira Mono:500`]
+          families: [`Domine:400,700`, `Barlow:500,500i,600,600i`, `IBM Plex Mono:500`]
         }
       }
     },
