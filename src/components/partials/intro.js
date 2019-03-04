@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'url-search-params-polyfill';
+import { encrypt, decrypt } from 'caesar-shift';
 
 // Assets
 import Social from '../blocks/Social';
@@ -18,20 +19,29 @@ const Ref = styled.span`
   ${tw`text-primary capitalize`}
 `;
 
-
 // Main
 const Shoutout = (() => {
   if (typeof window === 'undefined') return;
   const urlParams = new URLSearchParams(window.location.search);
   const ref = localStorage.getItem('ref') || urlParams.get('ref') || '';
-  // Ceasar shifts 13
-  const decode = str => (str.toUpperCase().replace(/[A-Z]/g, C => (
-    String.fromCharCode((C.charCodeAt(0) % 26) + 65)))).toLowerCase();
+  const decryptRef = decrypt(12, ref);
   
-  const decodeRef = decode(ref);
-  if (decodeRef.slice(-6) === 'jyeung') {
+  if (decryptRef.slice(-6) === 'jyeung') {
     localStorage.setItem('ref', ref);
-    return decodeRef.slice(0, decodeRef.length-6);
+    return decryptRef.slice(0, decryptRef.length-6);
+  }
+})();
+
+const getShoutout = (() => {
+  if (typeof window === 'undefined') return;
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('getref')) {
+    const ref = prompt('Enter referral name');
+    const url = window.location.href.split('?')[0];
+    const encryptRef = encrypt(12, ref+'jyeung');
+
+    localStorage.removeItem('ref');
+    return alert(`${url}?ref=${encryptRef}`);
   }
 })();
 
